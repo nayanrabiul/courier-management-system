@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="shadow-lg p-1 mb-1 bg-levender rounded" >
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-body" style="width: 28.5cm; left: 0.45cm;">
+          <div class="shadow-lg p-1 mb-2 bg-levender rounded" >
+            <form action="" method="POST" style="text-align: center;">
+              {% csrf_token %}
+              <label for="date" style="font-weight: bold;"> <i>Pick a Date:</i> </label>
+              <input type="date" id="date" name="date">
+              <input class="btn btn-outline-success btn-rounded my-2 my-sm-0" style="font-weight: bold;" type="submit" value="Submit">
+            </form>
+            <form action="" method="POST" style="text-align: center;">
+              {% csrf_token %}
+              <label for="date" style="font-weight: bold;"> <i>Pick a Date Range:</i> </label>
+              <input type="date" id="date" name="date1">
+              <input type="date" id="date" name="date2">
+              <input class="btn btn-outline-success btn-rounded my-2 my-sm-0" style="font-weight: bold;" type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-body" style="margin-bottom: 30px;">
+                <p type="text"  class="btn btn-outline-success btn-rounded my-2 my-sm-0"><b><i> Inventory</i></b></p><p></p>
+                <table id="order-listing" class="table table-striped" style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th style="text-align: center;">Product id</th>
+                      <th style="text-align: center;">Date</th>
+                      <th style="text-align: center;">Delivery_Price </th>
+                      <th style="text-align: center;">Product_is_paid</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for u in data %}
+                    <tr>
+                      <td style="text-align: center;">{{u.product_id}}</td>
+                      <td style="text-align: center;">{{u.product_date}}</td>
+                      <td style="text-align: center;">{{u.delivery_price}}</td>
+                      <td style="text-align: center;">{{u.product_is_paid}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <h6 style="text-align: center; font-weight: bold;">Paid:{{paid}}  taka</h6>
+                <h6 style="text-align: center; font-weight: bold;">Due:{{due}} taka</h6>
+              </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>register</title>
+	{% load static %}	
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="{% static 'login/frontimg/favicon.png'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/bootstrap.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/icon-font.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/animate.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/hamburgers.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/select2.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css'%}">
+	<link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet"> 
+
+<style>
+	body, html {
+	  height: 100%;
+	  margin: 0;
+	}	
+	.bg {
+	  background-image: url('/static/login/img/featured/signin.jpeg');
+	  height: 50%; 
+	  width: 50%;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	</style>
+	
+</head>
+<body class="bg">
+	
+	<div class="limiter">
+		<div class="container" style="margin-left: 500px;">
+			<div class="wrap-login100 ">
+				<form class="login100-form validate-form" method="POST" action="">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-55">
+						Register_Form
+					</span>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: johnny">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-user"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: johnny">
+						<input class="input100" type="text" name="first_name" placeholder="First Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-user"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: english">
+						<input class="input100" type="text" name="last_name" placeholder="Last Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-user"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="password1" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="password2" placeholder="Confirm Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div>
+					
+					<div class="input-group mb-2" style="left: 90px;">
+						<h3 style="color: rgb(148, 147, 165); font: sans-serif;">Location:</h3> {{form.location}} <br>
+					</div>
+					<div class="input-group mb-3" style="left: 15px;">
+						<h3 style="color: rgb(148, 147, 165);"> Admin    {{form.is_admin}} | </h3>
+						<h3 style="color: rgb(148, 147, 165);">Officer    {{form.is_officer}} | </h3>
+						<h3 style="color: rgb(148, 147, 165);">Dispatcher    {{form.is_disp}} </h3>
+					</div>
+					
+					<div class="container-login100-form-btn p-t-25">
+						<button class="login100-form-btn" type="submit" value="Register Account">
+							Register
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<script src="{% static 'login/js/vendor/jquery-2.2.4.min.js'%}"></script>
+	<script src="{% static 'login/js/popper.js'%}"></script>
+	<script src="{% static 'login/js/vendor/bootstrap.min.js'%}"></script>
+	<script src="{% static 'login/js/select2.min.js'%}"></script>
+	<script src="{% static 'login/js/main.js'%}"></script>
+</body>
+</html>

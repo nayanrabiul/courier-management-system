@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>The homepage</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+<section id="nav-bar">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Services</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">About us</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Contact us</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/login/">Log In</a>
+    </li>
+
+    </ul>
+    </div>
+  </nav>
+</section>
+
+<!---headline------------------>
+<section id="banner" style="background: url('/static/images/back.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="promo-title">Courier Service Management System</p>
+        <p>Safety of your parcel is our priority.For fast service with the safety of your percel at a good price please visit us.Your time is pricious to us.<br>Stay with us. </p><br><br><br>
+      </div>
+      <div class="col-md-6 text-center">
+
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
+<!---services----------->
+<section id="services">
+  <div class="container text-center">
+    <h1 class="title"><b>Our Services</b></h1>
+    <div class="row text-center">
+      <div class="col-md-4 services">
+        <img src="{% static 'images/price.png' %}" alt="" class="services-img">
+        <h4>Price section</h4>
+        <p>We try to provide our services at best price.For getting best services at best price please stay with us.</p>
+      </div>
+      <div class="col-md-4 services">
+        <img src="{% static 'images/pack.png' %}" alt="" class="services-img">
+        <h4>Package section</h4>
+        <p>From our site you can enjoy a best price saving Package.Visit here for great service at a best deal.Stay with us.</p>
+      </div>
+      <div class="col-md-4 services">
+        <img src="{% static 'images/track.png' %}" alt="" class="services-img">
+        <h4>Traking section</h4>
+        <p>We understand your concern.From our site you can track your product.Your parcel, our responsibity.</p>
+      </div>
+    </div>
+    <button type="button"class="btn btn-primary" name="button">All Services</button>
+  </div>
+</section>
+<!---about us----------->
+<section id="about-us">
+  <div class="container">
+    <h1 class="title text-center"><br><b>Why Choose us?</b></h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="about-title">Why we're different???</p>
+        <ul>
+          <li>Believe in doing bussiness with honesty.</li>
+          <li>We maintain good work policy.</li>
+          <li>We priotize your concern.</li>
+          <li>We think about delicate parcels.</li>
+          <li>You will find great offer here.</li>
+          <li>Pay attention on your comments.</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <img src="{% static 'images/h1.jpg' %}" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+<!---contact us---------->
+<section id="social-media">
+  <div class="container text-center">
+    <p>Find Us On Social Media</p>
+    <div class="social-icons">
+      <a href="#"><img src="{% static 'images/fb1.svg' %}" alt=""></a>
+      <a href="#"><img src="{% static 'images/insta.svg' %}" alt=""></a>
+      <a href="#"><img src="{% static 'images/tw.svg' %}" alt=""></a>
+      <a href="#"><img src="{% static 'images/whats.svg' %}" alt=""></a>
+      <a href="#"><img src="{% static 'images/vi.svg' %}" alt=""></a>
+      <a href="#"><img src="{% static 'images/in.svg' %}" alt=""></a>
+    </div>
+  </div>
+</section>
+<!---footer---------->
+<section id="footer">
+  <img src="" alt="" class="footer-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 footer-box">
+        <p> <b>WE THINK</b> </p>
+        <p>We try to priotize your priority.Your concern our responsibity.For a wonderful experience please stay with us.</p>
+      </div>
+      <div class="col-md-4 footer-box">
+        <p> <b>CONTACT US</b> </p>
+        <p><i class="fa fa-map-marker"></i>Jalil Tower, Khulna</p>
+        <p><i class="fa fa-phone"></i>+880127847</p>
+        <p><i class="fa fa-envelope-o"></i>xyz@gmail.com</p>
+      </div>
+      <div class="col-md-4 footer-box">
+        <p><b>COMMENTS</b></p>
+        <input type="Comment" name="" value="" class="form-control" placeholder="Your Opinion">
+        <button type="button" name="button" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

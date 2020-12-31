@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="shadow-lg p-3 mb-3 bg-levender rounded" >
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="shadow-lg p-3 mb-3 bg-levender rounded" >
+            <div class="card card-body">                
+                <table class="table table-sm">
+                    {% for u in product %}
+                        <th> <i>Product_id</i> </th>
+                        <td>{{u.product_id}}</td></tr>
+                        <tr><th><i> Sender_name</i></th>
+                        <td>{{u.sender_name}}</td></tr>
+                        <tr> <th><i>Sender_email</i></th>
+                        <td>{{u.sender_email}}</td></tr>
+                        <tr> <th><i>Sender_Loacation</i></th>
+                        <td>{{u.sender_location}}</td></tr>
+                        <tr> <th><i>Sender_Phone_Number</i></th> 
+                        <td>{{u.sender_phone_number}}</td></tr>
+                        <tr> <th><i>Receiver_Name</i></th>
+                        <td>{{u.reciver_name}}</td></tr>
+                        <tr> <th><i>Receiver_Email</i></th>
+                        <td>{{u.reciver_email}}</td></tr>
+                        <tr> <th><i>Receiver_Location</i></th>
+                        <td>{{u.reciver_location}}</td></tr>
+                        <tr> <th><i>Receiver_Phone_Number</i></th>
+                        <td>{{u.reciver_phone_number}}</td></tr>
+                        <tr> <th><i>Product_Weight</i></th>
+                        <td>{{u.product_weight_in_gram}}</td></tr>
+                        <tr> <th><i>Is_paid?</i></th>
+                            <td>{{u.product_is_paid}}</td></tr>
+                        <tr> <th><i>Product_Type</i></th>                        
+                        <td>{{u.product_type}}</td>    </tr>                   
+                        <tr> <th><i>Product_Date</i></th>
+                        <td>{{u.product_date}}</td></tr>
+                        <tr> <th><i>Arrived</i></th>
+                            <td>{{u.product_is_arrived}}</td></tr>
+                            
+            {% if not u.product_is_paid  %}
+            <a class="btn btn-sm btn-info" href="{% url 'paid_for_user' u.product_id %}">paid</a>
+            {% endif %}
+                  {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

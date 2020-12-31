@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+     
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="shadow-lg p-3 mb-3 bg-lavender rounded" >
+                    <div class="card card-body">
+                        <p type="text" class="btn btn-outline-success btn-rounded my-2 my-sm-0"><b><i>Product_Registration:</i></b></p>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="container">
+                <div class="shadow-lg p-3 mb-3 bg-lavender rounded" >
+                    <div class="shadow-lg p-2 mb-2 bg-levender rounded" >
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ form.as_p }}
+                            </div>
+                        </div>
+            </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-body">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </form>
+
+<script>
+var form_fields = document.getElementsByTagName('input')
+for (var field in form_fields){
+    form_fields[field].className += ' form-control'
+}
+</script>
+{% endblock %}
+   

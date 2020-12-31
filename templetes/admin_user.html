@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+      <div class="shadow-lg p-3 mb-3 bg-levender rounded" >
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card card-body">
+                <a  class="btn btn-outline-success btn-rounded my-2 my-sm-0 btn-sm btn-block" href="{% url 'register' %}"><b>Add Agent</b></a><br>
+                <table id="order-listing" class="table table-striped" style="width:100%;">
+                  <thead>
+                    <tr>
+                        <th style="text-align: center;">Username</th>
+                        <th style="text-align: center;">Location</th>
+                        <th style="text-align: center;">Email</th>
+                        <th style="text-align: center;">Admin</th>
+                        <th style="text-align: center;">Officer</th>
+                        <th style="text-align: center;">Disp</th>                        
+                        <th style="text-align: center;">Update</th>
+					              <th style="text-align: center;">Remove</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                    {% for u in userss %}
+                      <tr>
+                        <td style="text-align: center;">{{u.username}}</td>
+                        <td style="text-align: center;">{{u.location}}</td>
+                        <td style="text-align: center;">{{u.email}}</td>
+                        <td style="text-align: center;"> {{u.is_admin}} </td>
+                        <td style="text-align: center;"> {{u.is_officer}} </td>
+                        <td style="text-align: center;"> {{u.is_disp}} </td>
+                        <td style="text-align: center;"><a class="btn btn-sm btn-success" href="{% url 'update_user' u.username %}">Update</a></td>          
+                        <td style="text-align: center;"><a class="btn btn-sm btn-danger" href="{% url 'delete_user' u.username %}">Delete</a></td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-body">
+                <div class="shadow-lg p-3 mb-3 bg-levender rounded" >
+                 <ul >
+                   <a class="btn btn-outline-success btn-rounded my-2 my-sm-0  btn-sm btn-block" href="{% url 'inventory' %}">Inventory</a><p></p>
+                   <a class="btn btn-outline-success btn-rounded my-2 my-sm-0  btn-sm btn-block" href="{% url 'view_products' %}">View_Product</a>            
+                 </ul>
+                </div> 
+              </div>
+            </div>
+          </div>
+          {% endblock %}

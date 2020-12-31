@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div class="shadow-lg p-3 mb-3 bg-levender rounded" >
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-body">
+               <p type="text" class="btn btn-outline-success btn-rounded my-2 my-sm-0"> <b><i>Product_Information</i></b></p><p></p>            
+               
+            <table id="order-listing" class="table table-striped" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Product<br>id</th>
+                    <th style="text-align: center;">Sender<br>name</th>
+                    <th style="text-align: center;">Sender<br>email</th>
+                    <th style="text-align: center;">Sender <br> loacation</th>
+                    <th style="text-align: center;">Sender<br> phone<br> number</th> 
+                    <th style="text-align: center;">Receiver<br>name</th>
+                    <th style="text-align: center;">Receiver<br>email</th>
+                    <th style="text-align: center;">Receiver<br>loacation</th>
+                    <th style="text-align: center;">Receiver<br>phone<br> number</th>
+                    <th style="text-align: center;">Product<br>weight</th>
+                    <th style="text-align: center;">Product<br>type</th>                        
+                    <th style="text-align: center;">Product<br>date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for u in product %}
+                  <tr>
+                        <td style="text-align: center;">{{u.product_id}}</td>
+                        <td style="text-align: center;">{{u.sender_name}}</td>
+                        <td style="text-align: center;">{{u.sender_email}}</td>
+                        <td style="text-align: center;">{{u.sender_location}}</td>
+                        <td style="text-align: center;">{{u.sender_phone_number}}</td>
+                        <td style="text-align: center;">{{u.reciver_name}}</td>
+                        <td style="text-align: center;">{{u.reciver_email}}</td>
+                        <td style="text-align: center;">{{u.reciver_location}}</td>
+                        <td style="text-align: center;">{{u.reciver_phone_number}}</td>
+                        <td style="text-align: center;">{{u.product_weight_in_gram}}</td>
+                        <td style="text-align: center;">{{u.product_type}}</td>                        
+                        <td style="text-align: center;">{{u.product_date}}</td>
+                  
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

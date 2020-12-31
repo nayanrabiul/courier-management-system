@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid"  style="margin-top: 10px;">
+  <div class="row">
+      <div class="col-md-12">
+        <div class="shadow-lg p-1 mb-1 bg-levender rounded" >
+          <div class="card card-body">
+     <ul >
+       <a class="btn btn-outline-success btn-rounded my-2 my-sm-0  btn-sm btn-block" href="{% url 'branch_product' %}"> <b><i>All Product</i></b> </a><p></p>                  
+     </ul>
+    </div> 
+  </div>
+</div>
+</div>
+ <div class="container-fluid"  style="margin-top: 10px;">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="shadow-lg p-1 mb-1 bg-levender rounded" >
+            <div class="card card-body">
+                <p type="text" class="btn btn-outline-success btn-rounded my-2 my-sm-0"> <b><i>Need to delivery</i></b> </p><p></p>
+                <table id="order-listing" class="table table-striped" style="width:100%;">
+                    <thead>
+                      <tr>
+                        <th>Product_id</th>
+                        <th>Sender_location</th>
+                        <th>Sender_phone_number</th>
+                        <th>Receiver_location</th>
+                        <th>Receiver_phone_number</th>                        
+                        <th>Product_is_paid</th>
+                        <th>View details </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in d_product %}
+                      <tr>
+                        <td>{{u.product_id}}</td>
+                      <td>{{u.sender_location}}</td>
+                      <td> {{u.sender_phone_number}} </td>
+                      <td> {{u.reciver_location}} </td>
+                      <td> {{u.reciver_phone_number}} </td>
+                      <td> {{u.product_is_paid}} </td>
+                      <td><a class="btn btn-sm btn-info" href="{% url 'view_product' u.product_id %}">view details</a></td>    
+                    </tr>
+                         {% endfor %}
+                    </tbody>
+                </table>              
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+  <!--<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="shadow-lg p-1 mb-1 bg-levender rounded" >
+            <div class="card card-body">
+                <a class="btn btn-outline-success btn-rounded my-2 my-sm-0" href="{% url 'product_registration' %}"><b><i>Add Product</i></b></a>
+                <br>
+                     
+            <table id="order-listing" class="table table-striped" style="width:100%;">
+              <thead>
+                <tr>
+                        <th>Product_id</th>
+                        <th>Sender_location</th>
+                        <th>Sender_phone_number</th>
+                        <th>Receiver_location</th>
+                        <th>Receiver_phone_number</th>                        
+                        <th>Product_is_paid</th>
+                        <th>View details </th>
+                        <th>Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for u in d_product %}
+                <tr>
+                    <td>{{u.product_id}}</td>
+                    <td>{{u.sender_location}}</td>
+                    <td> {{u.sender_phone_number}} </td>
+                    <td> {{u.reciver_location}} </td>
+                    <td> {{u.reciver_phone_number}} </td>
+                    <td> {{u.product_is_paid}} </td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'view_product' u.product_id %}">view details</a></td>    
+                    <td><a class="btn btn-sm btn-info" href="{% url 'update_product' u.product_id %}">Update</a></td>          
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+
+              
+            </div>
+        </div>
+
+    </div>
+</div>--->
+
+{% endblock %}
+

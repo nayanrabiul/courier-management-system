@@ -1,0 +1,152 @@
+*
+{
+  margin: 0;
+  padding: 0
+}
+body{
+  font-family: sans-serif;
+
+}
+#nav-bar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar{
+  background-image: linear-gradient(to right, lavender, #a517ba);
+  padding: 0!important;
+}
+.navbar-brand img{
+  height: 45px;
+  padding-left: 60px;
+  width: 230px;
+}
+.navbar-nav li{
+  padding: 0 10px;
+}
+.navbar-nav li a{
+  color: white !important;
+  font-weight: 600;
+  float: right;
+  text-align: center;
+}
+.far-bars{
+  color: white;
+  font-size: 30px !important;
+}
+.navbar-toggler{
+  outline: none !important;
+}
+
+/*-------------the headline---------------*/
+#banner{
+  background: url(back.jpg);
+  background-size: cover;
+  padding-top: 22%;
+  color: white;
+}
+.promo-title{
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 100px;
+  color: white;
+}
+
+/*--------------Services------*/
+#services{
+  padding: 80px 0;
+  background-color: lavender;
+}
+.services-img{
+  width: 100px;
+  margin-top: 20px;
+}
+.services{
+  padding: 20px;
+}
+.services h4{
+  padding: 5px;
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+#services .btn-primary{
+  box-shadow: none;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #a517ba, #5f1782);
+}
+/*---------------about us--------*/
+#about-us{
+  background: white;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.about-title{
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 8%;
+}
+#about-us ul li{
+  margin: 10px 0;
+}
+#about-us ul{
+  margin-left: 20px;
+}
+/*------contact us---------*/
+#social-media{
+  background: lavender;
+  padding: 100px 0;
+}
+#social-media p{
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.social-icons img{
+  width: 60px;
+  transition: 0.5s;
+}
+.social-icons a:hover{
+  transform: translateY(-10px);
+}
+/*---------footer-----------*/
+#footer{
+  background-image: linear-gradient(to right, #a517ba, #5f1782);
+  color: white;
+}
+.footer-img{
+  width: 100%;
+}
+.footer-box{
+  padding: 20px;
+}
+.footer-box img{
+  width: 120px;
+  margin-bottom: 20px;
+}
+.footer-box .fa{
+  margin-right: 8px;
+  font-size: 25px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #a517ba, #5f1782);
+}
+.footer-box .form-control{
+  box-shadow: none !important;
+  border: none;
+  border-radius: 0;
+  margin-top: 25px;
+  max-width: 250px;
+}
+.footer-box .btn-primary{
+  box-shadow: none !important;
+  border: none;
+  border-radius: 0;
+  margin-top: 30px;
+  background-image: linear-gradient(to right, #a517ba, #5f1782);
+}

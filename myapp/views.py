@@ -1,3 +1,6 @@
+from django.core.mail import send_mail
+from django.conf import settings
+
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import *
@@ -82,8 +85,13 @@ def officer(request):
             return redirect('disp')
         else:
             product = Product.objects.filter(
-                reciver_location=request.user.location, product_is_arrived=True)
-            context = {'d_product': product}
+                reciver_location=request.user.location, product_is_arrived=True, is_retuned=False)
+            need_to_return = Product.objects.filter(
+                sender_location=request.user.location, retuned=True, is_retuned=True)
+            product_that_returned = Product.objects.filter(
+                reciver_location=request.user.location, product_is_arrived=True, is_retuned=True)
+            context = {'d_product': product, 'need_to_return': need_to_return,
+                       'product_that_returned': product_that_returned}
             return render(request, 'officer.html', context)
     else:
         return HttpResponse('you are not logged in.please log in ')
@@ -108,7 +116,11 @@ def disp(request):
             product = Product.objects.filter(
                 reciver_location=request.user.location)
 
-            context = {'product': product}
+            product_that_returned = Product.objects.filter(
+                sender_location=request.user.location,  is_retuned=True)
+
+            context = {'product': product,
+                       'product_that_returned': product_that_returned}
             return render(request, 'disp.html', context)
 
     else:
@@ -222,11 +234,6 @@ def update_product(request, pk):
     return render(request, 'product_update_form.html', context)
 
 
-def user_update_for_disp(request, pk):
-    Product.objects.filter(product_id=pk).update(product_is_arrived=True)
-    return redirect('disp')
-
-
 def product_registration(request):
     if request.method == 'POST':
         form = ProductCreationForm(request.POST)
@@ -300,3 +307,44 @@ def cheakout(request):
 
 def handler404(request, exception):
     return render(request, '404.html', status=404)
+
+
+def product_return(request, pk):
+    Product.objects.filter(product_id=pk).update(is_retuned=True)
+    return redirect('officer')
+
+
+def user_update_for_disp(request, pk):
+
+    subject = 'Your product is arraived'
+    message = 'Your product is arraived.please collect your product'
+    recepient = list(Product.objects.filter(product_id=pk).values(
+        'reciver_email'))[0]['reciver_email']
+    send_mail(subject,
+              message, settings.EMAIL_HOST_USER, [recepient], fail_silently=False)
+
+    Product.objects.filter(product_id=pk).update(product_is_arrived=True)
+    return redirect('disp')
+
+
+def user_update_for_disp_return(request, pk):
+
+    subject = 'Your product is returned'
+    message = 'Your product is returned.please come to our office'
+    recepient = list(Product.objects.filter(product_id=pk).values(
+        'sender_email'))[0]['sender_email']
+    send_mail(subject,
+              message, settings.EMAIL_HOST_USER, [recepient], fail_silently=False)
+
+    Product.objects.filter(product_id=pk).update(retuned=True)
+    return redirect('disp')
+
+
+def sendmail(request):
+
+    subject = 'Welcome to DataFlair'
+    message = 'Hope you are enjoying your Django Tutorials'
+    recepient = 'nayan.rabiul@gmail.com'
+    send_mail(subject,
+              message, settings.EMAIL_HOST_USER, [recepient], fail_silently=False)
+    return render(request, 'mail.html')

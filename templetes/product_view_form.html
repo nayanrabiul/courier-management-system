@@ -41,6 +41,14 @@
             {% if not u.product_is_paid  %}
             <a class="btn btn-sm btn-info" href="{% url 'paid_for_user' u.product_id %}">paid</a>
             {% endif %}
+            <br>
+            {% if not u.is_retuned  %}
+            <a class="btn btn-sm btn-info" href="{% url 'product_return' u.product_id %}">Return product</a>
+            {% else %}
+            <a class="btn btn-sm btn-info" href="#">Returned</a>
+
+            
+            {% endif %}
                   {% endfor %}
                 </table>
             </div>

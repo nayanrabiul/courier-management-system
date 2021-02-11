@@ -83,3 +83,5 @@ class Product(models.Model):
     product_officer = models.CharField(max_length=60)
     delivery_price = models.FloatField(default=0)
     product_date = models.DateField()
+    is_retuned = models.BooleanField(default=False)
+    retuned = models.BooleanField(default=False)
